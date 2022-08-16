@@ -1,0 +1,13 @@
+.Header {
+  font-family: 'monumentextended', serif;
+  line-height: 100%;
+  font-size: 4.2rem;
+  margin:6.4rem 0;
+
+  .primary {
+    color: transparent;
+    stroke-width: 1rem;
+    -webkit-text-stroke: 2px white;
+    letter-spacing: 3px;
+  }
+}
