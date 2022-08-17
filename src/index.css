@@ -1,83 +1,108 @@
 @font-face {
-  font-family: 'monumentextended';
-  src: url("./src/fonts/monumentextended-regular.woff2");
+    font-family: 'monumentextended';
+    src: url("./src/fonts/monumentextended-regular.woff2");
 }
 
 @font-face {
-  font-family: 'Bague-sans';
-  src: url("./src/fonts/PFBagueSansPro-Reg-subset.otf");
-  font-weight: normal;
+    font-family: 'Bague-sans';
+    src: url("./src/fonts/PFBagueSansPro-Reg-subset.otf");
+    font-weight: normal;
 }
 
 @font-face {
-  font-family: 'Bague-sans';
-  src: url("./src/fonts/PFBagueSansPro-Italic-subset.otf");
-  font-weight: bold;
-  font-style: italic;
+    font-family: 'Bague-sans';
+    src: url("./src/fonts/PFBagueSansPro-Italic-subset.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SpotifyCircular';
+    src: url("./src/fonts/Circular/CircularStd-Medium.otf");
 }
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 *::selection {
-  background-color: white;
-  color: black;
+    background-color: white;
+    color: black;
 }
 
 @keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
+    0%, 100% {
+        transform: translate(0, 0)
+    }
+    10% {
+        transform: translate(-5%, -10%)
+    }
+    20% {
+        transform: translate(-15%, 5%)
+    }
+    30% {
+        transform: translate(7%, -25%)
+    }
+    40% {
+        transform: translate(-5%, 25%)
+    }
+    50% {
+        transform: translate(-15%, 10%)
+    }
+    60% {
+        transform: translate(15%, 0%)
+    }
+    70% {
+        transform: translate(0%, 15%)
+    }
+    80% {
+        transform: translate(3%, 35%)
+    }
+    90% {
+        transform: translate(-10%, 10%)
+    }
 }
 
 body::after {
-  background-image: url("./src/image/background-tile.webp");
-  content: "";
-  position: fixed;
-  height: 300%;
-  width: 300%;
-  top: -100%;
-  left: -50%;
-  opacity: 0.5;
-  animation: grain 8s steps(10) infinite;
-  z-index: -2;
+    background-image: url("./src/image/background-tile.webp");
+    content: "";
+    position: fixed;
+    height: 300%;
+    width: 300%;
+    top: -100%;
+    left: -50%;
+    opacity: 0.5;
+    animation: grain 8s steps(10) infinite;
+    z-index: -2;
 }
 
 body {
-  font-family: "Bague-sans", "Helvetica", Arial, sans-serif;
-  font-weight: normal;
-  font-size: 18px;
-  color: #F1F1F1;
-  background-color: black;
-  background-image: url("./image/background-tile.webp");
-  background-repeat: repeat;
-  background-attachment: scroll;
-  overflow-x: hidden;
-  margin: 0;
-  font-style: italic;
+    font-family: "Bague-sans", "Helvetica", Arial, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    color: #F1F1F1;
+    background-color: black;
+    background-image: url("./image/background-tile.webp");
+    background-repeat: repeat;
+    background-attachment: scroll;
+    overflow-x: hidden;
+    margin: 0;
+    font-style: italic;
 }
