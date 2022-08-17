@@ -10,10 +10,12 @@ interface ArtistCardProps {
 const ArtistCards: React.FC<ArtistCardProps> = ({ name, img, genre }) => {
   return (
     <div className={style.artistCard}>
-      <p className={style.artistName}>{name}</p>
       <img src={img} alt={name} />
-      <div className={style.genre}>
-        <p>{genre}</p>
+      <div className={style.footer}>
+        <p className={style.artistName}>{name}</p>
+        <div className={style.genre}>
+          <p>{genre}</p>
+        </div>
       </div>
     </div>
   );

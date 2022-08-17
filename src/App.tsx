@@ -10,6 +10,12 @@ import Faniah from "./image/Faniah.jpeg";
 import dizzyBrains from "./image/The Dizzy Brains.jpg";
 import alala from "./image/Alala.jpg";
 import gaele from "./image/Gaelle tsirinofy.jpg";
+import nuiRaza from "./image/NuiRaza.jpg";
+import mikaSyDavis from "./image/MikasyDavis.png";
+import Andrianina from "./image/Andriaina.jpg";
+import Loharano from "./image/Loharano.jpg";
+import zay from "./image/Zay.jpg";
+import johnOabmar from "./image/JohnOambar.jpg";
 
 function App() {
   return (
@@ -25,22 +31,14 @@ function App() {
           name={"The DizzyBrains"}
           genre={"Rock"}
         />
-        <ArtistCards img={alala} name={"Alala"} genre={"Pop"} />
-        <ArtistCards img={gaele} name={"Gaele"} genre={"Jazz"} />
-        <ArtistCards img={Faniah} name={"Faniah"} genre={"Jazz"} />
-        <ArtistCards
-          img={dizzyBrains}
-          name={"The DizzyBrains"}
-          genre={"Rock"}
-        />
-        <ArtistCards img={alala} name={"Alala"} genre={"Pop"} />
-        <ArtistCards img={gaele} name={"Gaele"} genre={"Jazz"} />
-        <ArtistCards img={Faniah} name={"Faniah"} genre={"Jazz"} />
-        <ArtistCards
-          img={dizzyBrains}
-          name={"The DizzyBrains"}
-          genre={"Rock"}
-        />
+        <ArtistCards img={alala} name={"ALALÁ"} genre={"Pop"} />
+        <ArtistCards img={gaele} name={"Gaëlle Tsirininofy"} genre={"Jazz"} />
+        <ArtistCards img={nuiRaza} name={"Nui Raza"} genre={"Jazz"} />
+        <ArtistCards img={mikaSyDavis} name={"Mika & Davis"} genre={"Rock"} />
+        <ArtistCards img={Andrianina} name={"Andrianina"} genre={"Pop"} />
+        <ArtistCards img={Loharano} name={"Loharano"} genre={"Jazz"} />
+        <ArtistCards img={zay} name={"Zay"} genre={"Jazz"} />
+        <ArtistCards img={johnOabmar} name={"John Oabmar"} genre={"Rock"} />
       </SectionArtist>
     </div>
   );
