@@ -9,5 +9,9 @@
     stroke-width: 1rem;
     -webkit-text-stroke: 2px white;
     letter-spacing: 3px;
+    &::selection {
+      -webkit-text-stroke: 2px black;
+      color: transparent;
+    }
   }
 }

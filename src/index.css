@@ -3,6 +3,19 @@
   src: url("./src/fonts/monumentextended-regular.woff2");
 }
 
+@font-face {
+  font-family: 'Bague-sans';
+  src: url("./src/fonts/PFBagueSansPro-Reg-subset.otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Bague-sans';
+  src: url("./src/fonts/PFBagueSansPro-Italic-subset.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -22,6 +35,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+*::selection {
+  background-color: white;
+  color: black;
 }
 
 @keyframes grain {
@@ -51,14 +69,15 @@ body::after {
 }
 
 body {
-  font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+  font-family: "Bague-sans", "Helvetica", Arial, sans-serif;
   font-weight: normal;
   font-size: 18px;
   color: #F1F1F1;
   background-color: black;
-  background-image: url("https://cdn.monstercat.com/background-tile.webp");
+  background-image: url("./image/background-tile.webp");
   background-repeat: repeat;
   background-attachment: scroll;
   overflow-x: hidden;
   margin: 0;
+  font-style: italic;
 }
