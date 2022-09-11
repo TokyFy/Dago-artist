@@ -2,15 +2,17 @@
   width: 100%;
   height: 100vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .layer {
-  width: 100%;
-  height: 100%;
+  width: 300%;
+  height: 300%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(.5);
+  transform: scale(1.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +20,9 @@
 
   .center {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -25,4 +30,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.headerWrapper {
+  position: absolute;
+}
+
+.reference {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    opacity: .5;
+    transform: scale(0.3);
+  }
 }

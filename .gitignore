@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# download it on the official website
+src/utils/vendor/gsap/*

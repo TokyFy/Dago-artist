@@ -1,56 +1,87 @@
-import React, { FunctionComponent } from "react";
-import style from "../styles/paralax.module.scss";
-import Header from "./Header";
-import ParallaxWidget from "./paralaxWidget";
+import React, { FunctionComponent, useRef } from "react";
 
-import gaelle from "../image/Gaelle tsirinofy.jpg";
-import Alala from "../image/Alala.jpg";
-import Andriaina from "../image/Andriaina.jpg";
-import Faniah from "../image/Faniah.jpeg";
-import Imiaingaly from "../image/Imiangaly.jpeg";
-import JohnOabmar from "../image/JohnOambar.jpg";
-import kristel from "../image/kristel.jpeg";
-import Loharano from "../image/Loharano.jpg";
-import MikasyDavis from "../image/MikasyDavis.png";
-import Nuiraza from "../image/NuiRaza.jpg";
-import TheDizzyDrains from "../image/The Dizzy Brains.jpg";
-import Zay from "../image/Zay.jpg";
+import { parallaxStyle as style } from "../styles";
+import { Header, ParallaxWidget } from "../components";
+
+import {
+  TheDizzyDrains,
+  gaelle,
+  Alala,
+  Faniah,
+  kristel,
+  Andriaina,
+  Nuiraza,
+  Loharano,
+  JohnOabmar,
+  MikasyDavis,
+  Imiaingaly,
+  mafonja,
+} from "../image";
+
+import useParallax from "../hooks/useParallax";
 
 const Parallax: FunctionComponent = () => {
+  const wrapper = useRef<HTMLDivElement>(null);
+  const layer0 = useRef<HTMLDivElement>(null);
+  const layer1 = useRef<HTMLDivElement>(null);
+  const layer2 = useRef<HTMLDivElement>(null);
+
+  useParallax(wrapper, [
+    {
+      elements: layer0,
+      friction: {
+        x: 0.9,
+        y: 0.825,
+      },
+    },
+    {
+      elements: layer1,
+      friction: {
+        x: 0.825,
+        y: 0.825,
+      },
+    },
+    {
+      elements: layer2,
+      friction: {
+        x: 0.825,
+        y: 0.9,
+      },
+    },
+  ]);
+
   return (
-    <div className={style.wrapper}>
-      <div className={`${style.layer} ${style.layer0}`}>
-        <Header primary={"Dago"} second={"Artist"} />
-      </div>
-      <div className={`${style.layer} ${style.layer1}`}>
+    <div className={style.wrapper} ref={wrapper}>
+      <div className={`${style.layer} ${style.layer0}`} ref={layer0}>
         <div className={style.center}>
-          <ParallaxWidget image={Alala} top={-390} left={-300} width={265} />
-          <ParallaxWidget image={Andriaina} top={132} left={-13} width={290} />
-          <ParallaxWidget image={Faniah} top={80} left={-440} width={260} />
-          <ParallaxWidget
-            image={Imiaingaly}
-            top={-315}
-            left={190}
-            width={280}
-          />
-          <ParallaxWidget
-            image={JohnOabmar}
-            top={-310}
-            left={-700}
-            width={274}
-          />
-          <ParallaxWidget image={kristel} top={-700} left={80} width={310} />
-          <ParallaxWidget image={Loharano} top={150} left={-860} width={290} />
-          <ParallaxWidget image={MikasyDavis} top={120} left={90} width={350} />
-          <ParallaxWidget image={Nuiraza} top={-650} left={-620} width={250} />
-          <ParallaxWidget
-            image={TheDizzyDrains}
-            top={46}
-            left={452}
-            width={324}
-          />
-          <ParallaxWidget image={Zay} top={500} left={150} width={270} />
-          <ParallaxWidget image={gaelle} top={430} left={-390} width={280} />
+          <div className={style.headerWrapper}>
+            <Header>
+              A strange art – music – the most poetic and precise of all the arts ...
+            </Header>
+          </div>
+
+          <ParallaxWidget top={255} left={-645} image={Loharano} width={220} />
+          <ParallaxWidget top={-335} left={-505} image={JohnOabmar} width={220} />
+          <ParallaxWidget top={165} left={-25} image={TheDizzyDrains} width={220} />
+          <ParallaxWidget top={-385} left={475} image={MikasyDavis} width={220} />
+        </div>
+      </div>
+
+      <div className={`${style.layer} ${style.layer1}`} ref={layer1}>
+        <div className={style.center}>
+          <ParallaxWidget top={-385} left={-185} image={kristel} width={220} />
+          <ParallaxWidget top={-75} left={-805} image={Faniah} width={220} />
+          <ParallaxWidget top={-75} left={285} image={gaelle} width={220} />
+          <ParallaxWidget top={325} left={-305} image={Imiaingaly} width={220} />
+        </div>
+      </div>
+
+      <div className={`${style.layer} ${style.layer2}`} ref={layer2}>
+        <div className={style.center}>
+          <ParallaxWidget top={-355} left={135} image={Nuiraza} width={220} />
+          <ParallaxWidget top={-45} left={-445} image={Alala} width={220} />
+          <ParallaxWidget top={235} left={315} image={mafonja} width={220} />
+          <ParallaxWidget top={15} left={595} image={Andriaina} width={220} />
         </div>
       </div>
     </div>

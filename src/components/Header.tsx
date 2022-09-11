@@ -1,11 +1,12 @@
 import style from "../styles/Header.module.scss";
+import React from "react";
 
-function Header({ primary, second }: { primary: string; second: string }) {
-  return (
-    <h1 className={style.Header}>
-      <span className={style.primary}>{primary}</span> <br /> {second}
-    </h1>
-  );
+interface props {
+  children: string;
 }
+
+const Header: React.FC<props> = ({ children }) => {
+  return <h1 className={style.Header}>{children}</h1>;
+};
 
 export default Header;
