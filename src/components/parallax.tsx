@@ -26,29 +26,38 @@ const Parallax: FunctionComponent = () => {
   const layer1 = useRef<HTMLDivElement>(null);
   const layer2 = useRef<HTMLDivElement>(null);
 
-  useParallax(wrapper, [
-    {
-      elements: layer0,
-      friction: {
-        x: 0.9,
-        y: 0.825,
+  const outerRight = useRef<HTMLDivElement>(null);
+  const outerLeft = useRef<HTMLDivElement>(null);
+  const outerTop = useRef<HTMLDivElement>(null);
+  const outerBottom = useRef<HTMLDivElement>(null);
+
+  useParallax(
+    wrapper,
+    [
+      {
+        elements: layer0,
+        friction: {
+          x: 1.1,
+          y: 1.1,
+        },
       },
-    },
-    {
-      elements: layer1,
-      friction: {
-        x: 0.825,
-        y: 0.825,
+      {
+        elements: layer1,
+        friction: {
+          x: 1.05,
+          y: 1.0,
+        },
       },
-    },
-    {
-      elements: layer2,
-      friction: {
-        x: 0.825,
-        y: 0.9,
+      {
+        elements: layer2,
+        friction: {
+          x: 1.0,
+          y: 1.05,
+        },
       },
-    },
-  ]);
+    ],
+    [outerRight, outerLeft, outerTop, outerBottom],
+  );
 
   return (
     <div className={style.wrapper} ref={wrapper}>
@@ -69,10 +78,28 @@ const Parallax: FunctionComponent = () => {
 
       <div className={`${style.layer} ${style.layer1}`} ref={layer1}>
         <div className={style.center}>
-          <ParallaxWidget top={-385} left={-185} image={kristel} width={220} />
-          <ParallaxWidget top={-75} left={-805} image={Faniah} width={220} />
+          <ParallaxWidget
+            top={-385}
+            left={-185}
+            image={kristel}
+            width={220}
+            ref={outerTop}
+          />
+          <ParallaxWidget
+            top={-75}
+            left={-805}
+            image={Faniah}
+            width={220}
+            ref={outerLeft}
+          />
           <ParallaxWidget top={-75} left={285} image={gaelle} width={220} />
-          <ParallaxWidget top={325} left={-305} image={Imiaingaly} width={220} />
+          <ParallaxWidget
+            top={325}
+            left={-305}
+            image={Imiaingaly}
+            width={220}
+            ref={outerBottom}
+          />
         </div>
       </div>
 
@@ -81,7 +108,13 @@ const Parallax: FunctionComponent = () => {
           <ParallaxWidget top={-355} left={135} image={Nuiraza} width={220} />
           <ParallaxWidget top={-45} left={-445} image={Alala} width={220} />
           <ParallaxWidget top={235} left={315} image={mafonja} width={220} />
-          <ParallaxWidget top={15} left={595} image={Andriaina} width={220} />
+          <ParallaxWidget
+            top={15}
+            left={595}
+            image={Andriaina}
+            width={220}
+            ref={outerRight}
+          />
         </div>
       </div>
     </div>

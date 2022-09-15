@@ -9,14 +9,14 @@
 }
 
 .layer {
-  width: 300%;
-  height: 300%;
+  background-color: aqua;
+  width: max-content;
+  height: max-content;
   position: absolute;
-  transform: scale(1.2);
+  transform: scale(1.6);
   display: flex;
   align-items: center;
   justify-content: center;
-
 
   .center {
     position: relative;

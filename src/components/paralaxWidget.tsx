@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { forwardRef } from "react";
 import style from "../styles/parallaxWidget.module.scss";
 
 interface props {
@@ -8,20 +8,18 @@ interface props {
   width: number;
 }
 
-const ParallaxWidget: FunctionComponent<props> = ({
-  top,
-  left,
-  image,
-  width,
-}) => {
-  return (
-    <div
-      className={style.widget}
-      style={{ width: `${width}px`, top: `${top}px`, left: `${left}px` }}
-    >
-      <img src={image} alt={"Gaelle"} />
-    </div>
-  );
-};
+const ParallaxWidget = forwardRef<HTMLDivElement, props>(
+  ({ top, left, image, width }: props, ref) => {
+    return (
+      <div
+        className={style.widget}
+        style={{ width: `${width}px`, top: `${top}px`, left: `${left}px` }}
+        ref={ref}
+      >
+        <img src={image} alt={"Gaelle"} />
+      </div>
+    );
+  },
+);
 
 export default ParallaxWidget;
