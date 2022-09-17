@@ -25,6 +25,7 @@ const Parallax: FunctionComponent = () => {
   const layer0 = useRef<HTMLDivElement>(null);
   const layer1 = useRef<HTMLDivElement>(null);
   const layer2 = useRef<HTMLDivElement>(null);
+  const pointerCursor = useRef<HTMLDivElement>(null);
 
   const outerRight = useRef<HTMLDivElement>(null);
   const outerLeft = useRef<HTMLDivElement>(null);
@@ -57,10 +58,12 @@ const Parallax: FunctionComponent = () => {
       },
     ],
     [outerRight, outerLeft, outerTop, outerBottom],
+    pointerCursor,
   );
 
   return (
     <div className={style.wrapper} ref={wrapper}>
+      <div id={style.pointerCursor} ref={pointerCursor}></div>
       <div className={`${style.layer} ${style.layer0}`} ref={layer0}>
         <div className={style.center}>
           <div className={style.headerWrapper}>
