@@ -76,45 +76,42 @@ const useParallax = (
       });
 
       if (pointerCursor && window.matchMedia("(pointer: coarse)").matches) {
-        // Override delta
-        const delta = {
-          "-x": Math.abs(alpha["+x"]) - theta.x + 50,
-          "+x": Math.abs(alpha["-x"]) - theta.x + 50,
-          "-y": Math.abs(alpha["+y"]) - theta.y + 100,
-          "+y": Math.abs(alpha["-y"]) - theta.y + 100,
+        const pointerCursorDim = {
+          width: outerRight.x + outerRight.width - outerLeft.x,
+          height: outerBottom.y + outerBottom.width - outerTop.y,
+          top: outerTop.y,
+          left: outerLeft.x,
         };
+
+        const bounds = {
+          maxX: -outerLeft.x + 100,
+          minX: -outerRight.x - outerRight.width + wrapperDim.width - 100,
+          maxY: -outerTop.y + 100,
+          minY: -outerBottom.y - outerBottom.width + wrapperDim.height - 100,
+        };
+
+        pointerCursor.current!.style.width = `${pointerCursorDim.width}px`;
+        pointerCursor.current!.style.height = `${pointerCursorDim.height}px`;
+        pointerCursor.current!.style.top = `${pointerCursorDim.top}px`;
+        pointerCursor.current!.style.left = `${pointerCursorDim.left}px`; // AGAIN this should be the height, but I can't find out why
 
         Draggable.create(pointerCursor.current, {
           trigger: wrapper.current,
           type: "x,y",
           edgeResistance: 1,
-          bounds: wrapper.current,
-          inertia: false,
+          bounds: bounds,
+          inertia: true,
           onMove: () => {
-            const cursor = {
-              // Cursor position from the wrapper center
-              x:
-                pointerCursor.current?.getBoundingClientRect().x! -
-                wrapperDim.width / 2,
-              y:
-                pointerCursor.current?.getBoundingClientRect().y! -
-                wrapperDim.height / 2,
-            };
+            let X =
+              pointerCursor.current?.getBoundingClientRect().x! +
+              (wrapperDim.width / 2 - outerLeft.x) -
+              wrapperDim.width / 2;
 
-            let X = 0;
-            let Y = 0;
-
-            if (cursor.x >= 0) {
-              X = (delta["+x"] * cursor.x) / theta.x;
-            } else {
-              X = (delta["-x"] * cursor.x) / theta.x;
-            }
-
-            if (cursor.y <= 0) {
-              Y = (delta["+y"] * cursor.y) / theta.y;
-            } else {
-              Y = (delta["-y"] * cursor.y) / theta.y;
-            }
+            console.log(X);
+            let Y =
+              pointerCursor.current?.getBoundingClientRect().y! +
+              (wrapperDim.height / 2 - outerTop.y) -
+              wrapperDim.height / 2;
 
             layer.forEach((layer) => {
               gsap.to(layer.elements.current, {
