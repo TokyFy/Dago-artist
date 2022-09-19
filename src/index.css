@@ -1,24 +1,12 @@
 @font-face {
     font-family: 'monumentextended';
-    src: url("./src/fonts/monumentextended-regular.woff2");
+    src: url("/fonts/monumentextended-regular.woff2");
 }
 
 @font-face {
     font-family: 'Bague-sans';
-    src: url("./src/fonts/PFBagueSansPro-Reg-subset.otf");
+    src: url("/fonts/BagueSansReg.otf");
     font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Bague-sans';
-    src: url("./src/fonts/PFBagueSansPro-Italic-subset.otf");
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SpotifyCircular';
-    src: url("./src/fonts/Circular/CircularStd-Medium.otf");
 }
 
 :root {
