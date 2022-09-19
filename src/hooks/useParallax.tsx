@@ -86,7 +86,7 @@ const useParallax = (
         const bounds = {
           maxX: -outerLeft.x + 100,
           minX: -outerRight.x - outerRight.width + wrapperDim.width - 100,
-          maxY: -outerTop.y + 100,
+          maxY: -outerTop.y + 200,
           minY: -outerBottom.y - outerBottom.width + wrapperDim.height - 100,
         };
 
@@ -100,7 +100,7 @@ const useParallax = (
           type: "x,y",
           edgeResistance: 1,
           bounds: bounds,
-          inertia: true,
+          dragClickables: true,
           onMove: () => {
             let X =
               pointerCursor.current?.getBoundingClientRect().x! +
@@ -115,15 +115,18 @@ const useParallax = (
 
             layer.forEach((layer) => {
               gsap.to(layer.elements.current, {
-                duration: 0.5,
+                duration: 0.25,
                 y: Y * layer.friction.y,
               });
 
               gsap.to(layer.elements.current, {
-                duration: 1,
+                duration: 0.25,
                 x: X * layer.friction.x,
               });
             });
+          },
+          onDragEnd: () => {
+            pointerCursor.current!.style.zIndex = "-1";
           },
         });
       }
