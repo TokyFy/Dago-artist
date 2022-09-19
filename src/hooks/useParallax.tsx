@@ -84,9 +84,9 @@ const useParallax = (
         };
 
         const bounds = {
-          maxX: -outerLeft.x + 100,
-          minX: -outerRight.x - outerRight.width + wrapperDim.width - 100,
-          maxY: -outerTop.y + 200,
+          maxX: -outerLeft.x + 50,
+          minX: -outerRight.x - outerRight.width + wrapperDim.width - 50,
+          maxY: -outerTop.y + 100,
           minY: -outerBottom.y - outerBottom.width + wrapperDim.height - 100,
         };
 

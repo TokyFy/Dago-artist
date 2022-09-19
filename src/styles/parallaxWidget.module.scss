@@ -1,6 +1,7 @@
 .widget {
   position: absolute;
-  z-index: 99;
+  z-index: 3;
+  overflow: hidden;
 
   img {
     width: 100%;
