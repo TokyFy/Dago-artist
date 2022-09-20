@@ -43,38 +43,6 @@ const useParallax = (
         "-y": Math.abs(alpha["-y"]) - theta.y + 100,
       };
 
-      document.addEventListener("mousemove", (e) => {
-        const cursor = {
-          // Cursor position from the wrapper center
-          x: e.clientX - wrapperDim.width / 2,
-          y: e.clientY - wrapperDim.height / 2,
-        };
-
-        let X = 0;
-        let Y = 0;
-
-        if (cursor.x >= 0) {
-          X = -(delta["+x"] * cursor.x) / theta.x;
-        } else {
-          X = -(delta["-x"] * cursor.x) / theta.x;
-        }
-
-        if (cursor.y <= 0) {
-          Y = -(delta["+y"] * cursor.y) / theta.y;
-        } else {
-          Y = -(delta["-y"] * cursor.y) / theta.y;
-        }
-
-        layer.forEach((layer) => {
-          gsap.to(layer.elements.current, {
-            ease: "power4.out",
-            duration: 10,
-            x: X * layer.friction.x,
-            y: Y * layer.friction.y,
-          });
-        });
-      });
-
       if (pointerCursor && window.matchMedia("(pointer: coarse)").matches) {
         const pointerCursorDim = {
           width: outerRight.x + outerRight.width - outerLeft.x,
@@ -128,6 +96,38 @@ const useParallax = (
           onDragEnd: () => {
             pointerCursor.current!.style.zIndex = "-1";
           },
+        });
+      } else {
+        document.addEventListener("mousemove", (e) => {
+          const cursor = {
+            // Cursor position from the wrapper center
+            x: e.clientX - wrapperDim.width / 2,
+            y: e.clientY - wrapperDim.height / 2,
+          };
+
+          let X = 0;
+          let Y = 0;
+
+          if (cursor.x >= 0) {
+            X = -(delta["+x"] * cursor.x) / theta.x;
+          } else {
+            X = -(delta["-x"] * cursor.x) / theta.x;
+          }
+
+          if (cursor.y <= 0) {
+            Y = -(delta["+y"] * cursor.y) / theta.y;
+          } else {
+            Y = -(delta["-y"] * cursor.y) / theta.y;
+          }
+
+          layer.forEach((layer) => {
+            gsap.to(layer.elements.current, {
+              ease: "power4.out",
+              duration: 10,
+              x: X * layer.friction.x,
+              y: Y * layer.friction.y,
+            });
+          });
         });
       }
     }
