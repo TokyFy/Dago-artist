@@ -68,14 +68,12 @@ const useParallax = (
           type: "x,y",
           edgeResistance: 1,
           bounds: bounds,
-          dragClickables: true,
           onMove: () => {
             let X =
               pointerCursor.current?.getBoundingClientRect().x! +
               (wrapperDim.width / 2 - outerLeft.x) -
               wrapperDim.width / 2;
 
-            console.log(X);
             let Y =
               pointerCursor.current?.getBoundingClientRect().y! +
               (wrapperDim.height / 2 - outerTop.y) -

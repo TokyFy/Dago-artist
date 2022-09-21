@@ -1,7 +1,21 @@
 .widget {
+  padding: .5rem;
+  padding-bottom: 0;
   position: absolute;
   z-index: 3;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0);
+
+  @media (pointer: coarse) {
+    background-color: rgba(255, 255, 255, 1);
+    transform: rotate(3deg) scale(.9);
+  }
+
+  &:hover {
+    background-color: white;
+    transition: all 1s ease-in-out;
+    transform: rotate(3deg);
+  }
 
   img {
     width: 100%;
@@ -10,5 +24,23 @@
 
   &:hover {
     opacity: .8;
+
+    & .name {
+      opacity: 1;
+      transition: all 1s ease-in-out;
+    }
+
+  }
+
+  .name {
+    color: black;
+    font-family: "monumentextended", serif;
+    font-size: 0.8rem;
+    opacity: 0;
+    margin-top: -.3rem;
+
+    @media (pointer: coarse) {
+      opacity: 1;
+    }
   }
 }

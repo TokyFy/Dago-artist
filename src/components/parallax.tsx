@@ -32,6 +32,8 @@ const Parallax: FunctionComponent = () => {
   const outerTop = useRef<HTMLDivElement>(null);
   const outerBottom = useRef<HTMLDivElement>(null);
 
+  const widgetWidth = 250;
+
   useParallax(
     wrapper,
     [
@@ -72,10 +74,34 @@ const Parallax: FunctionComponent = () => {
             </Header>
           </div>
 
-          <ParallaxWidget top={255} left={-645} image={Loharano} width={220} />
-          <ParallaxWidget top={-335} left={-505} image={JohnOabmar} width={220} />
-          <ParallaxWidget top={165} left={-25} image={TheDizzyDrains} width={220} />
-          <ParallaxWidget top={-385} left={475} image={MikasyDavis} width={220} />
+          <ParallaxWidget
+            top={255}
+            left={-645}
+            image={Loharano}
+            width={widgetWidth}
+            name={"Loharano"}
+          />
+          <ParallaxWidget
+            top={-335}
+            left={-505}
+            image={JohnOabmar}
+            width={widgetWidth}
+            name={"John Oabmar"}
+          />
+          <ParallaxWidget
+            top={165}
+            left={-25}
+            image={TheDizzyDrains}
+            width={widgetWidth}
+            name={"The Dizzy Drains"}
+          />
+          <ParallaxWidget
+            top={-385}
+            left={475}
+            image={MikasyDavis}
+            width={widgetWidth}
+            name={"Mika & Davis"}
+          />
         </div>
       </div>
 
@@ -85,38 +111,66 @@ const Parallax: FunctionComponent = () => {
             top={-385}
             left={-185}
             image={kristel}
-            width={220}
+            width={widgetWidth}
             ref={outerTop}
+            name={"kristel"}
           />
           <ParallaxWidget
             top={-75}
             left={-805}
             image={Faniah}
-            width={220}
+            width={widgetWidth}
             ref={outerLeft}
+            name={"Faniah"}
           />
-          <ParallaxWidget top={-75} left={285} image={gaelle} width={220} />
+          <ParallaxWidget
+            top={-75}
+            left={285}
+            image={gaelle}
+            width={widgetWidth}
+            name={"Gaelle tsirinofy"}
+          />
           <ParallaxWidget
             top={325}
             left={-305}
             image={Imiaingaly}
-            width={220}
+            width={widgetWidth}
             ref={outerBottom}
+            name={"Imiaingaly"}
           />
         </div>
       </div>
 
       <div className={`${style.layer} ${style.layer2}`} ref={layer2}>
         <div className={style.center}>
-          <ParallaxWidget top={-355} left={135} image={Nuiraza} width={220} />
-          <ParallaxWidget top={-45} left={-445} image={Alala} width={220} />
-          <ParallaxWidget top={235} left={315} image={mafonja} width={220} />
+          <ParallaxWidget
+            top={-355}
+            left={135}
+            image={Nuiraza}
+            width={widgetWidth}
+            name={"Nui Raza"}
+          />
+          <ParallaxWidget
+            top={-45}
+            left={-445}
+            image={Alala}
+            width={widgetWidth}
+            name={"ALALA"}
+          />
+          <ParallaxWidget
+            top={235}
+            left={315}
+            image={mafonja}
+            width={widgetWidth}
+            name={"Mafonja"}
+          />
           <ParallaxWidget
             top={15}
             left={595}
             image={Andriaina}
-            width={220}
+            width={widgetWidth}
             ref={outerRight}
+            name={"Andriaina"}
           />
         </div>
       </div>
