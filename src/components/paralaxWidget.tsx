@@ -15,6 +15,9 @@ const ParallaxWidget = forwardRef<HTMLDivElement, props>(
         className={style.widget}
         style={{ width: `${width}px`, top: `${top}px`, left: `${left}px` }}
         ref={ref}
+        onClick={() => {
+          alert("Hello");
+        }}
       >
         <img src={image} alt={"Gaelle"} />
       </div>
