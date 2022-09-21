@@ -8,6 +8,10 @@
   transform: scale(.9);
   transition: all .5s ease-in-out;
 
+  &:hover {
+    transform: rotate(1deg) !important;
+  }
+
   img {
     width: 100%;
     height: auto;
