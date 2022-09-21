@@ -82,22 +82,22 @@ const Parallax: FunctionComponent = () => {
             name={"Loharano"}
           />
           <ParallaxWidget
-            top={-335}
-            left={-505}
+            top={-405}
+            left={-545}
             image={JohnOabmar}
             width={widgetWidth}
             name={"John Oabmar"}
           />
           <ParallaxWidget
             top={165}
-            left={-25}
+            left={-5}
             image={TheDizzyDrains}
             width={widgetWidth}
             name={"The Dizzy Drains"}
           />
           <ParallaxWidget
-            top={-385}
-            left={475}
+            top={-415}
+            left={535}
             image={MikasyDavis}
             width={widgetWidth}
             name={"Mika & Davis"}
@@ -124,7 +124,7 @@ const Parallax: FunctionComponent = () => {
             name={"Faniah"}
           />
           <ParallaxWidget
-            top={-75}
+            top={-45}
             left={285}
             image={gaelle}
             width={widgetWidth}
@@ -145,21 +145,21 @@ const Parallax: FunctionComponent = () => {
         <div className={style.center}>
           <ParallaxWidget
             top={-355}
-            left={135}
+            left={155}
             image={Nuiraza}
             width={widgetWidth}
             name={"Nui Raza"}
           />
           <ParallaxWidget
-            top={-45}
+            top={-75}
             left={-445}
             image={Alala}
             width={widgetWidth}
             name={"ALALA"}
           />
           <ParallaxWidget
-            top={235}
-            left={315}
+            top={275}
+            left={295}
             image={mafonja}
             width={widgetWidth}
             name={"Mafonja"}
