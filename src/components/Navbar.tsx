@@ -6,7 +6,7 @@ import Menu from "./Menu";
 import { MouseEventHandler, useState } from "react";
 
 function Navbar() {
-  const [activeMenu, setActiveMenu] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<boolean | undefined>(undefined);
 
   const humberClickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
@@ -22,9 +22,7 @@ function Navbar() {
             <img src={logo} alt="toky" />
           </div>
           <div className={styles.humberMenu}>
-            <HumberMenu
-              clickHandler={humberClickHandler}
-            />
+            <HumberMenu clickHandler={humberClickHandler} />
           </div>
         </div>
       </div>

@@ -13,11 +13,15 @@
 }
 
 .hide {
-  animation: hide 1s both;
+  animation: hide 1s both alternate;
 }
 
 @keyframes show {
-  to {
+  0% {
+    height: 0;
+  }
+
+  100% {
     height: 100%;
   }
 }
