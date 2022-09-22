@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { Draggable, gsap, InertiaPlugin } from "../utils/vendor/gsap/esm/all";
+import gsap from "gsap";
+import Draggable from "gsap/Draggable";
 
 interface layer {
   elements: React.RefObject<HTMLDivElement>;
@@ -13,7 +14,7 @@ const useParallax = (
   pointerCursor: React.RefObject<HTMLDivElement>,
 ) => {
   useEffect(() => {
-    gsap.registerPlugin(Draggable, InertiaPlugin);
+    gsap.registerPlugin(Draggable);
     const wrapperDim = wrapper.current?.getBoundingClientRect();
 
     const outerRight = outer[0].current?.getBoundingClientRect();
@@ -121,7 +122,7 @@ const useParallax = (
           layer.forEach((layer) => {
             gsap.to(layer.elements.current, {
               ease: "power4.out",
-              duration: 10,
+              duration: 5,
               x: X * layer.friction.x,
               y: Y * layer.friction.y,
             });

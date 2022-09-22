@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 import style from "../styles/parallaxWidget.module.scss";
 
 interface props {
@@ -11,16 +11,17 @@ interface props {
 
 const ParallaxWidget = forwardRef<HTMLDivElement, props>(
   ({ name, top, left, image, width }: props, ref) => {
-    const deg = [-1, -1.5, -2, 1, 1.5, 2][Math.floor(Math.random() * 6)];
+    const degClass = ["_one", "_one_five", "_two", "one", "one_five", "two"][
+      Math.floor(Math.random() * 6)
+    ];
 
     return (
       <div
-        className={style.widget}
+        className={`${style.widget} ${style[degClass]}`}
         style={{
           width: `${width}px`,
           top: `${top}px`,
           left: `${left}px`,
-          transform: `rotate(${deg}deg)`,
         }}
         ref={ref}
       >
