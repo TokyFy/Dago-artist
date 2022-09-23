@@ -7,9 +7,20 @@
   transform: scale(.9);
   transition: all .5s ease-in-out;
 
-  img {
+  .image {
     width: 100%;
-    height: auto;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .imageLoading {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid black;
+    margin-bottom: 5px;
   }
 
   .name {

@@ -1,15 +1,15 @@
-import gaelle from "./Gaelle tsirinofy.jpg";
-import Alala from "./Alala.jpg";
-import Andriaina from "./Andriaina.jpg";
-import Faniah from "./Faniah.jpeg";
-import Imiaingaly from "./Imiangaly.jpeg";
-import JohnOabmar from "./JohnOambar.jpg";
-import kristel from "./kristel.jpeg";
-import Loharano from "./Loharano.jpg";
-import MikasyDavis from "./MikasyDavis.png";
-import Nuiraza from "./NuiRaza.jpg";
-import TheDizzyDrains from "./The Dizzy Brains.jpg";
-import mafonja from "./mafonjah.jpg";
+import gaelle from "./artist/Gaelle tsirinofy.jpg";
+import Alala from "./artist/Alala.jpg";
+import Andriaina from "./artist/Andriaina.jpg";
+import Faniah from "./artist/Faniah.jpeg";
+import Imiaingaly from "./artist/Imiangaly.jpeg";
+import JohnOabmar from "./artist/JohnOambar.jpg";
+import kristel from "./artist/kristel.jpeg";
+import Loharano from "./artist/Loharano.jpg";
+import MikasyDavis from "./artist/MikasyDavis.png";
+import Nuiraza from "./artist/NuiRaza.jpg";
+import TheDizzyDrains from "./artist/The Dizzy Brains.jpg";
+import mafonja from "./artist/mafonjah.jpg";
 
 export {
   gaelle,
