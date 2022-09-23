@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <link href="/logo.svg" rel="icon" type="image/svg+xml" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link as="font" crossorigin href="/fonts/monumentExtended.woff2" rel="preload prefetch" type="font/woff">
   <title>Stelio</title>
 
   <style>
@@ -12,12 +13,16 @@
           padding: 0;
       }
 
+      body {
+          font-family: "monumentextended", serif;
+      }
+
       #loadingScreen {
           width: 100%;
           height: 100%;
           background-color: black;
           position: absolute;
-          z-index: 2;
+          z-index: 9 !important;
 
           display: flex;
           align-items: center;
