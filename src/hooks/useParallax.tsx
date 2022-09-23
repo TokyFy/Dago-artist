@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import Draggable from "gsap/Draggable";
+import useViewports from "./useViewports";
 
 interface layer {
   elements: React.RefObject<HTMLDivElement>;
@@ -13,14 +14,37 @@ const useParallax = (
   outer: Array<React.RefObject<HTMLDivElement>>,
   pointerCursor: React.RefObject<HTMLDivElement>,
 ) => {
+  let [vh, vw] = useViewports();
+
   useEffect(() => {
     gsap.registerPlugin(Draggable);
-    const wrapperDim = wrapper.current?.getBoundingClientRect();
 
+    // Recenter all layer on window resize
+    layer.forEach((layer) => {
+      layer.elements.current!.style.transform = "";
+
+      const scale =
+        layer.elements.current!.getBoundingClientRect().width /
+        layer.elements.current!.offsetWidth;
+
+      gsap.to(layer.elements.current, {
+        ease: "power4.out",
+        duration: 0.5,
+        scaleX: scale,
+        scaleY: scale,
+        x: 0,
+        y: 0,
+      });
+    });
+
+    const wrapperDim = wrapper.current?.getBoundingClientRect();
     const outerRight = outer[0].current?.getBoundingClientRect();
     const outerLeft = outer[1].current?.getBoundingClientRect();
     const outerTop = outer[2].current?.getBoundingClientRect();
     const outerBottom = outer[3].current?.getBoundingClientRect();
+
+    let mousemove: (e: MouseEvent) => void;
+    // will use To remove the event later
 
     if (wrapperDim && outerRight && outerLeft && outerTop && outerBottom) {
       const alpha = {
@@ -97,40 +121,46 @@ const useParallax = (
           },
         });
       } else {
-        document.addEventListener("mousemove", (e) => {
-          const cursor = {
-            // Cursor position from the wrapper center
-            x: e.clientX - wrapperDim.width / 2,
-            y: e.clientY - wrapperDim.height / 2,
-          };
+        document.addEventListener(
+          "mousemove",
+          (mousemove = (e) => {
+            const cursor = {
+              // Cursor position from the wrapper center
+              x: e.clientX - wrapperDim.width / 2,
+              y: e.clientY - wrapperDim.height / 2,
+            };
 
-          let X = 0;
-          let Y = 0;
+            let X = 0;
+            let Y = 0;
 
-          if (cursor.x >= 0) {
-            X = -(delta["+x"] * cursor.x) / theta.x;
-          } else {
-            X = -(delta["-x"] * cursor.x) / theta.x;
-          }
+            if (cursor.x >= 0) {
+              X = -(delta["+x"] * cursor.x) / theta.x;
+            } else {
+              X = -(delta["-x"] * cursor.x) / theta.x;
+            }
 
-          if (cursor.y <= 0) {
-            Y = -(delta["+y"] * cursor.y) / theta.y;
-          } else {
-            Y = -(delta["-y"] * cursor.y) / theta.y;
-          }
+            if (cursor.y <= 0) {
+              Y = -(delta["+y"] * cursor.y) / theta.y;
+            } else {
+              Y = -(delta["-y"] * cursor.y) / theta.y;
+            }
 
-          layer.forEach((layer) => {
-            gsap.to(layer.elements.current, {
-              ease: "power4.out",
-              duration: 5,
-              x: X * layer.friction.x,
-              y: Y * layer.friction.y,
+            layer.forEach((layer) => {
+              gsap.to(layer.elements.current, {
+                ease: "power4.out",
+                duration: 5,
+                x: X * layer.friction.x,
+                y: Y * layer.friction.y,
+              });
             });
-          });
-        });
+          }),
+        );
       }
     }
-  }, []);
+    return () => {
+      document.removeEventListener("mousemove", mousemove);
+    };
+  }, [vh, vw]);
 };
 
 export default useParallax;

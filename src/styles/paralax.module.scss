@@ -9,16 +9,27 @@
 }
 
 .layer {
-  background-color: aqua;
-  width: max-content;
-  height: max-content;
+  width: 1px;
+  aspect-ratio: 1;
   position: absolute;
   transform: scale(1.6);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 900px) {
+  @media (max-width: 1600px) {
+    transform: scale(1.4);
+  }
+
+  @media (max-width: 1400px) {
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 1090px) {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 900px) {
     transform: scale(0.9);
   }
 

@@ -11,7 +11,6 @@ const BurgerMenu: React.FC<props> = ({ clickHandler }) => {
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
     setActive(!active);
-    console.log("okk");
     clickHandler(e);
   };
 
