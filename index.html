@@ -32,11 +32,19 @@
       #loadingScreen .logo {
           width: 42px;
           height: max-content;
+          color: #000;
+          animation: softScale 2s alternate infinite ease-in-out;
       }
 
-      #loadingScreen .logo img {
+      #loadingScreen .logo svg {
           width: 100%;
           height: auto;
+      }
+
+      @keyframes softScale {
+          to {
+              transform: rotate(180deg);
+          }
       }
 
   </style>
@@ -44,7 +52,12 @@
 <body>
 <div id="loadingScreen">
   <div class="logo">
-    <img alt="Toky" src="/logo.svg" />
+    <svg fill="none" height="64" viewBox="0 0 64 64" width="64" xmlns="http://www.w3.org/2000/svg">
+      <rect fill="#F3F3F3" height="64" transform="rotate(180 64 64)" width="64" x="64" y="64" />
+      <rect fill="#000" height="11.875" id="dot" rx="5.9375" transform="rotate(-90 40.125 49.875)" width="11.875"
+            x="40.125"
+            y="49.875" />
+    </svg>
   </div>
 </div>
 <div id="root"></div>
